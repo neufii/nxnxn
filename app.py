@@ -13,6 +13,13 @@ global LINE_API_KEY
 LINE_API_KEY = 'Bearer sRYigBQ4TKs4v1CbEaHPY6+pXvrY//AV1Ah4T04FRdqKDxWBpgy7IQwFT9YV6v0/hASPJmdXHtF0OnVBU9zf4NcPjry8/MA2/5ruLY/tYsZ8bzm/hVaXKTGZZfX39IIyU42i5Lbrnl/P91grLzC/6wdB04t89/1O/w1cDnyilFU='
 
 app = Flask(__name__)
+
+chatbot = ChatBot("NBot")
+
+conversation = [u"สวัสดี",u"ดีจ้า",u"ทำไรอยู่",u"กินข้าว"]
+
+chatbot.set_trainer(ListTrainer)
+chatbot.train(conversation)
  
 @app.route('/')
 def index():
@@ -56,10 +63,12 @@ def bot():
 
     print("TEXT\t"+text)
 
+    decoded = text.decode("utf-8")
+    response = chatbot.get_response(decoded)
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    replyStack.append(text)
+    replyStack.append(response)
     print("replyToken\t" + replyToken)
     reply(replyToken, replyStack[:5])
 
