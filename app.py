@@ -3,7 +3,6 @@
 
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-import sqlite3
 
 from flask import Flask, request
 import json
@@ -19,12 +18,6 @@ chatbot = ChatBot("Bot")
 
 conversation = [u"สวัสดี",u"ดีจ้า",u"ทำไรอยู่",u"กินข้าว"]
 
-db = sqlite3.connect('database.db')
-cur = db.cursor()
-cur.excute('drop table if exists tag')
-db.commit()
-cur.close
-db.close()
 
 chatbot.set_trainer(ListTrainer)
 chatbot.train(conversation)
