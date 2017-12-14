@@ -20,7 +20,8 @@ chatbot = ChatBot("Bot")
 conversation = [u"สวัสดี",u"ดีจ้า",u"ทำไรอยู่",u"กินข้าว"]
 
 db = sqlite3.connect('database.db')
-cur = db.cursor('drop table if exists tag')
+cur = db.cursor()
+cur.excute('drop table if exists tag')
 db.commit()
 cur.close
 db.close()
