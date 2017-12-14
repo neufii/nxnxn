@@ -65,12 +65,14 @@ def bot():
     print("TEXT\t"+text)
 
     response = chatbot.get_response(text)
+    print("RESPONSE" + response)
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     replyStack.append(response)
     print("replyToken\t" + replyToken)
     reply(replyToken, replyStack[:5])
+
 
     
     return 'OK', 200
