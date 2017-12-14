@@ -65,7 +65,7 @@ def bot():
     print("TEXT\t"+text)
 
     response = chatbot.get_response(text)
-    print("RESPONSE" + response)
+    print(response)
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
