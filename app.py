@@ -43,9 +43,9 @@ def bot():
     # ตรงนี้ต้องแน่ใจว่า msgType เป็นประเภท text ถึงเรียกได้ครับ
     #text = msg_in_json["events"][0]['message']['text'].lower().strip()
     
-    #if msgType != 'text':
-        #   reply(replyToken, ['Only text is allowed.'])
-        #  return 'OK',200
+    if msgType != 'text':
+            reply(replyToken, ['Only text is allowed.'])
+            return 'OK',200
     
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
 
