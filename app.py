@@ -14,7 +14,7 @@ LINE_API_KEY = 'Bearer sRYigBQ4TKs4v1CbEaHPY6+pXvrY//AV1Ah4T04FRdqKDxWBpgy7IQwFT
 
 app = Flask(__name__)
 
-chatbot = ChatBot("NBot")
+chatbot = ChatBot("Bot")
 
 conversation = [u"สวัสดี",u"ดีจ้า",u"ทำไรอยู่",u"กินข้าว"]
 
