@@ -32,7 +32,7 @@ def bot():
     userID =  msg_in_json["events"][0]['source']['userId']
     msgType =  msg_in_json["events"][0]['message']['type']
 
-    print("userId\t"+userId)
+    print("userId\t"+userID)
     print("msgType\t"+msgType)
     
     # ตรวจสอบว่า ที่ส่งเข้ามาเป็น text รึป่าว (อาจเป็น รูป, location อะไรแบบนี้ได้ครับ)
