@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 
 from flask import Flask, request
 import json
