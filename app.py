@@ -16,11 +16,18 @@ app = Flask(__name__)
 
 chatbot = ChatBot("Bot")
 
-conversation = [u"สวัสดี",u"ดีจ้า",u"ทำไรอยู่",u"กินข้าว"]
 
 
 chatbot.set_trainer(ListTrainer)
-chatbot.train(conversation)
+chatbot.train("chatterbot.corpus.english")
+chatbot.train([u"สวัสดี",u"ดีจ้า",u"ทำไรอยู่",u"ว่างคุยมั้ย"])
+chatbot.train([u"หวัดดี",u"ว่างคุยมั้ย",u"หวัดดีจ้า"])
+chatbot.train([u"นี่ใครเนี่ย",u"เราคือ Chat Bot ที่สามารถเลียนแบบคนที่เราคุยด้วยได้ด้วยล่ะ คุยกับเราเยอะๆ นะ",u"เราคือ Chat Bot ไง"])
+chatbot.train([u"AI คืออะไรอะ",u"AI ย่อมาจาก Artificial Intelligence ทำให้คอมมีความสามารถคล้ายมนุษย์ อย่างเราก็เป็น AI นะ",u"ปัญญาประดิษฐ์ไง เรากำลังเลียนแบบพฤติกรรมคุณอยู่น่ะ คุยกับเราเยอะๆ สิ"]) 
+chatbot.train([u"ทำไรอยู่",u"กำลังคิดถึงคุณ"])
+chatbot.train([u"เป็นไงบ้าง",u"สบายดี คุณล่ะ"])
+chatbot.train([u"ว่าง",u"หรอ ดีจัง แต่เราไม่ว่าง ไปนะ บาย"])
+chatbot.train([u"บาย",u"จะไปแล้วหรอ อยู่คุยกันก่อนสิ", u"บายๆ"])
  
 @app.route('/')
 def index():
