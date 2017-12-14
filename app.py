@@ -49,12 +49,16 @@ def bot():
     
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
 
+    print("TEXT\t"+text)
+
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
     replyStack.append('นี่คือรูปแบบข้อความที่รับส่ง')
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     replyStack.append(msg_in_string)
     reply(replyToken, replyStack[:5])
+
+    print("REPLIED")
     
     return 'OK', 200
  
