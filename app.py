@@ -19,7 +19,7 @@ app = Flask(__name__)
  
 @app.route('/')
 def index():
-    return 'This is chatbot server.'
+    return 'This is NxNxN Server.'
 @app.route('/bot', methods=['POST'])
 
 def bot():
