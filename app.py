@@ -2,6 +2,14 @@
 from flask import Flask, request
 import json
 import requests
+import logging
+
+logger = logging.getLogger('nxnxn')
+hdlr = logging.FileHandler('/var/tmp/nxnxn.log')
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr) 
+logger.setLevel(logging.WARNING)
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
@@ -21,6 +29,9 @@ def bot():
     # ข้อความที่ได้รับมา
     msg_in_json = request.get_json()
     msg_in_string = json.dumps(msg_in_json)
+
+    #write log
+    logger.info(msg_in_string)
     
     # Token สำหรับตอบกลับ (จำเป็นต้องใช้ในการตอบกลับ)
     replyToken = msg_in_json["events"][0]['replyToken']
