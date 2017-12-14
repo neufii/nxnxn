@@ -52,18 +52,19 @@ def bot():
     print("TEXT\t"+text)
 
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
-    replyStack.append('นี่คือรูปแบบข้อความที่รับส่ง')
+    #replyStack.append('นี่คือรูปแบบข้อความที่รับส่ง')
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    replyStack.append(msg_in_string)
-    reply(replyToken, replyStack[:5])
+    #replyStack.append(msg_in_string)
+    print("replyToken\t" + replyToken)
+    reply(replyToken, text)
 
-    print("REPLIED")
     
     return 'OK', 200
  
 def reply(replyToken, textList):
     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+    print("REPLY BEGIN")
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
     headers = {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -80,6 +81,7 @@ def reply(replyToken, textList):
         "messages":msgs
     })
     requests.post(LINE_API, headers=headers, data=data)
+    print("REPLY END")
     return
 
 if __name__ == '__main__':
