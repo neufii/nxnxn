@@ -52,10 +52,9 @@ def bot():
     print("TEXT\t"+text)
 
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
-    replyStack.append('นี่คือรูปแบบข้อความที่รับส่ง')
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    replyStack.append(msg_in_string)
+    replyStack.append(text)
     print("replyToken\t" + replyToken)
     reply(replyToken, replyStack[:5])
 
