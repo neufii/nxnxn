@@ -80,7 +80,7 @@ def reply(replyToken, textList):
         "replyToken":replyToken,
         "messages":msgs
     })
-    requests.post(LINE_API, headers, data)
+    requests.post(LINE_API, headers=headers, data=data)
     print("REPLY END")
     return
 
